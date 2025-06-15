@@ -1,0 +1,60 @@
+/* Lumière Design System CSS Variables */
+:root {
+  /* Lumière Color Palette */
+  --lumiere-ivory: #FAF8F3;
+  --lumiere-navy: #22304A;
+  --lumiere-gold: #C6A664;
+  --lumiere-burgundy: #7C3048;
+  --lumiere-sage: #A6B89A;
+  --lumiere-grey: #E5E2DD;
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-accent: 'Open Sans', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Shadows */
+  --shadow-soft: 0px 2px 8px rgba(34, 48, 74, 0.12);
+  --shadow-gold: 0px 4px 16px rgba(198, 166, 100, 0.1);
+  --shadow-card: 0px 4px 16px rgba(198, 166, 100, 0.1);
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  background: var(--lumiere-ivory);
+  color: var(--lumiere-navy);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Utility classes */
+.lumiere-heading {
+  font-family: var(--font-heading);
+  color: var(--lumiere-navy);
+}
+
+.lumiere-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--lumiere-navy);
+}
+
+.lumiere-shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.lumiere-shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
