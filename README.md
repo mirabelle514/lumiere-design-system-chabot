@@ -10,20 +10,20 @@
   [![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC)](https://tailwindcss.com/)
 </div>
 
-## 🎨 Overview
+## Overview
 
 Lumière is a comprehensive design system built specifically for mobile applications, featuring sophisticated French-inspired aesthetics. It combines elegant typography, a carefully curated color palette, and thoughtfully designed components to create beautiful, accessible user interfaces.
 
-### ✨ Key Features
+### Key Features
 
-- **🎯 Mobile-First**: Optimized for touch interfaces and small screens
-- **🎨 French-Inspired Design**: Elegant color palette and typography
-- **♿ Accessibility**: WCAG 2.1 AA compliant with proper contrast ratios
-- **📱 Responsive**: Seamless experience across all device sizes
-- **⚡ Performance**: Built with Vite for optimal loading speeds
-- **🔧 Developer-Friendly**: TypeScript support with comprehensive prop types
+- **Mobile-First**: Optimized for touch interfaces and small screens
+- **French-Inspired Design**: Elegant color palette and typography
+- **Accessibility**: WCAG 2.1 AA compliant with proper contrast ratios
+- **Responsive**: Seamless experience across all device sizes
+- **Performance**: Built with Vite for optimal loading speeds
+- **Developer-Friendly**: TypeScript support with comprehensive prop types
 
-## 🎨 Design Tokens
+## Design Tokens
 
 ### Color Palette
 ```css
@@ -43,7 +43,7 @@ Lumière is a comprehensive design system built specifically for mobile applicat
 ### Spacing System
 Based on an 8px grid: `4px`, `8px`, `16px`, `24px`, `32px`, `48px`, `64px`
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -82,7 +82,7 @@ function App() {
 }
 ```
 
-## 📱 Components
+## Components
 
 ### Core Components
 - **LumiereButton** - Primary, secondary, and tertiary button variants
@@ -99,7 +99,7 @@ function App() {
 - **Action Sheets** - Bottom sheet interactions
 - **Bottom Navigation** - Tab-based navigation
 
-## 🎯 Mobile-First Approach
+## Mobile-First Approach
 
 ### Responsive Breakpoints
 - **Mobile**: 320px - 768px (Single column, touch-optimized)
@@ -125,7 +125,7 @@ function App() {
 - Manual keyboard navigation testing
 - Screen reader compatibility testing
 
-## 🛠️ Development
+## Development
 
 ### Available Scripts
 
@@ -150,7 +150,7 @@ src/
     └── utils.ts           # Utility functions
 ```
 
-## 📚 Documentation
+## Documentation
 
 Visit our [live documentation](https://your-username.github.io/lumiere-design-system) to explore:
 
@@ -161,7 +161,7 @@ Visit our [live documentation](https://your-username.github.io/lumiere-design-sy
 - **Responsive Design** - Breakpoint system and layouts
 - **Accessibility** - A11y standards and testing guidelines
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
@@ -174,18 +174,18 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 5. Push to the branch: `git push origin feature/amazing-feature`
 6. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Typography**: [Google Fonts](https://fonts.google.com/) for Playfair Display and Open Sans
 - **Icons**: [Lucide React](https://lucide.dev/) for beautiful, consistent icons
 - **Build Tool**: [Vite](https://vitejs.dev/) for fast development and building
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
 
-## 📞 Support
+## Support
 
 - **Documentation**: [Live Demo](https://your-username.github.io/lumiere-design-system)
 - **Issues**: [GitHub Issues](https://github.com/your-username/lumiere-design-system/issues)
@@ -196,4 +196,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <div align="center">
   <p>Made with ❤️ for beautiful mobile experiences</p>
   <p><em>Lumière - Where elegance meets functionality</em></p>
+    <p><em>part of<a href="https://thewednesdaycollective.com/">The Wednesday Collective family</a></em></p>
 </div>
