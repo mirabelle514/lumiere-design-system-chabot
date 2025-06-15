@@ -196,5 +196,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <div align="center">
   <p>Made with ❤️ for beautiful mobile experiences</p>
   <p><em>Lumière - Where elegance meets functionality</em></p>
-    <p><em>part of<a href="https://thewednesdaycollective.com/">The Wednesday Collective family</a></em></p>
+    <p><em>part of <a href="https://thewednesdaycollective.com/">The Wednesday Collective family</a></em></p>
 </div>
