@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LumiereButton } from '../lumiere/LumiereButton';
-import { LumiereCard, LumiereCardTitle, LumiereCardContent } from '../lumiere/LumiereCard';
+
 import { Play, Pause } from 'lucide-react';
 
 export const AnimationSection: React.FC = () => {

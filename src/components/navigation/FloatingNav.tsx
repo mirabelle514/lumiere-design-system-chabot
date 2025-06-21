@@ -22,7 +22,7 @@ export const FloatingNav: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
+      element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -51,19 +51,17 @@ export const FloatingNav: React.FC = () => {
   ];
 
   const externalLinks = [
-    { 
-      id: 'github', 
-      icon: <Github size={16} />, 
+    {
+      id: 'github',
+      icon: <Github size={16} />,
       label: 'GitHub',
-      // TODO: Add GitHub repository URL here
-      url: '#' 
+      url: 'https://github.com/mirabelle514/Lumiere-Design-System'
     },
-    { 
-      id: 'figma', 
-      icon: <Figma size={16} />, 
+    {
+      id: 'figma',
+      icon: <Figma size={16} />,
       label: 'Figma',
-      // TODO: Add Figma design file URL here
-      url: '#' 
+      url: 'https://www.figma.com/design/b02EQ9Wv4eYica3NA9JHNk/Cover-w-coming-up?node-id=0-1&t=ARHvWe8okuVZl7Nu-1'
     }
   ];
 
@@ -100,8 +98,8 @@ export const FloatingNav: React.FC = () => {
         {/* Expanded Navigation Menu */}
         <div className={cn(
           `absolute bottom-full right-0 mb-3 transition-all duration-300 origin-bottom-right`,
-          isExpanded 
-            ? 'opacity-100 scale-100 translate-y-0' 
+          isExpanded
+            ? 'opacity-100 scale-100 translate-y-0'
             : 'opacity-0 scale-95 translate-y-2 pointer-events-none'
         )}>
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)] min-w-[200px]">

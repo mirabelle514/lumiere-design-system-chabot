@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Home, User, Settings, Search, Heart, Star, 
   ShoppingCart, Bell, Mail, Phone, Camera, Map,
-  Plus, Minus, X, Check, ChevronRight, ChevronLeft,
+  Plus, Minus, X, Check,
   Menu, Filter, Share, Download, Upload, Edit
 } from 'lucide-react';
 

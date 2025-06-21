@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { LumiereButton } from '../lumiere/LumiereButton';
-import { LumiereInput } from '../lumiere/LumiereInput';
-import { LumiereCard, LumiereCardTitle, LumiereCardContent } from '../lumiere/LumiereCard';
+
+
+
 import { Search, Filter, MoreVertical, ChevronRight, Star, Heart } from 'lucide-react';
 
 export const MobilePatterns: React.FC = () => {

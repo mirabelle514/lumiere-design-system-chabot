@@ -1,6 +1,6 @@
 import React from 'react';
-import { LumiereButton } from '../lumiere/LumiereButton';
-import { Eye, EyeOff, Volume2, VolumeX } from 'lucide-react';
+
+import { Eye, Volume2 } from 'lucide-react';
 
 export const AccessibilitySection: React.FC = () => {
   return (
