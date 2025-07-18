@@ -1,0 +1,12 @@
+{
+  "name": "@lumiere/html",
+  "version": "1.0.0",
+  "description": "HTML version of Lumière Design System",
+  "scripts": {
+    "dev": "live-server --port=3001 --open=index.html --watch=.",
+    "build": "echo 'HTML build complete'"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

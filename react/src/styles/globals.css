@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-lumiere-ivory text-lumiere-navy;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-lumiere-navy;
+  }
+}

@@ -1,7 +1,8 @@
 # Lumière Design System
 
+...jsx
 <div align="center">
-  <h1>✨ Lumière</h1>
+  <h1>Lumière</h1>
   <p><em>A mobile-first design system with French-inspired elegance</em></p>
   
   [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://your-username.github.io/lumiere-design-system)
@@ -9,6 +10,7 @@
   [![Built with React](https://img.shields.io/badge/Built%20with-React-61DAFB)](https://reactjs.org/)
   [![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC)](https://tailwindcss.com/)
 </div>
+...
 
 ## Overview
 
@@ -26,6 +28,7 @@ Lumière is a comprehensive design system built specifically for mobile applicat
 ## Design Tokens
 
 ### Color Palette
+
 ```css
 --lumiere-ivory: #FAF8F3     /* Primary background */
 --lumiere-navy: #22304A      /* Primary text & actions */
@@ -36,11 +39,13 @@ Lumière is a comprehensive design system built specifically for mobile applicat
 ```
 
 ### Typography
+
 - **Headings**: Playfair Display (Elegant serif for titles)
 - **Body Text**: Open Sans (Clean, readable sans-serif)
 - **Accent Text**: Open Sans Italic (Subtle emphasis)
 
 ### Spacing System
+
 Based on an 8px grid: `4px`, `8px`, `16px`, `24px`, `32px`, `48px`, `64px`
 
 ## Quick Start
@@ -85,6 +90,7 @@ function App() {
 ## Components
 
 ### Core Components
+
 - **LumiereButton** - Primary, secondary, and tertiary button variants
 - **LumiereCard** - Standard and featured card layouts
 - **LumiereInput** - Form inputs with elegant styling
@@ -93,6 +99,7 @@ function App() {
 - **LumiereToggle** - Custom toggle switches
 
 ### Mobile Patterns
+
 - **Search & Filter** - Mobile-optimized search interfaces
 - **List Items** - Touch-friendly list components
 - **Card Grids** - Responsive card layouts

@@ -1,0 +1,13 @@
+{
+  "name": "@lumiere/tokens",
+  "version": "1.0.0",
+  "description": "Design tokens for Lumière Design System",
+  "main": "dist/js/tokens.js",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch"
+  },
+  "files": [
+    "dist/"
+  ]
+}

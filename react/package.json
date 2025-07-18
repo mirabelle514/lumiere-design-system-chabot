@@ -1,0 +1,99 @@
+{
+  "name": "lumiere-design-system",
+  "version": "1.0.0",
+  "description": "Elegant French-inspired mobile app design system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN",
+    "build-lib": "tsc && cp -r src/lumiere dist/"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "typescript",
+    "tailwind",
+    "storybook",
+    "french-design",
+    "mobile-ui"
+  ],
+  "author": "The Wednesday Projects",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@vitejs/plugin-react": "^4.1.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    
+    "@storybook/addon-essentials": "^7.6.20",
+    "@storybook/addon-interactions": "^7.6.20",
+    "@storybook/addon-links": "^7.6.20",
+    "@storybook/addon-a11y": "^7.6.20",
+    "@storybook/addon-viewport": "^7.6.20",
+    "@storybook/blocks": "^7.6.20",
+    "@storybook/react": "^7.6.20",
+    "@storybook/react-vite": "^7.6.20",
+    "@storybook/testing-library": "^0.2.2",
+    "storybook": "^7.6.20",
+    
+    "chromatic": "^7.5.0",
+    
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.5.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thewednesdayprojects/lumiere-design-system"
+  },
+  "bugs": {
+    "url": "https://github.com/thewednesdayprojects/lumiere-design-system/issues"
+  },
+  "homepage": "https://github.com/thewednesdayprojects/lumiere-design-system#readme"
+}
