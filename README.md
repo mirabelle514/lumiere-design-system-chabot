@@ -1,4 +1,4 @@
-# Lumière Design System for [The Wedenesday Collectives (https://thewednesdaycollective.com/)]
+# Lumière Design System for [The Wedenesday Collectives(https://thewednesdaycollective.com/)]
 
 ## Overview
 
@@ -208,6 +208,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## GitHub Integration & Chromatic
 
-Since my project is linked to GitHub, [Chromatic (https://www.chromatic.com/builds?appId=687a614558f8de72c52bf829)] will automatically report results there.
+Since my project is linked to GitHub, [Chromatic(https://www.chromatic.com/builds?appId=687a614558f8de72c52bf829)] will automatically report results there.
 
-[Storybook (https://687a614558f8de72c52bf829-wboedldegu.chromatic.com/)]
+[Storybook(https://687a614558f8de72c52bf829-wboedldegu.chromatic.com/)]
