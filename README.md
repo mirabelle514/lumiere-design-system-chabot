@@ -109,6 +109,7 @@ function App() {
 - **Spacing**: 8px minimum between touch elements
 
 ## Accessibility
+## Accessibility
 
 ### Standards Compliance
 
