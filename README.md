@@ -1,16 +1,4 @@
-# Lumière Design System
-
-...jsx
-<div align="center">
-  <h1>Lumière</h1>
-  <p><em>A mobile-first design system with French-inspired elegance</em></p>
-  
-  [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://your-username.github.io/lumiere-design-system)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Built with React](https://img.shields.io/badge/Built%20with-React-61DAFB)](https://reactjs.org/)
-  [![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC)](https://tailwindcss.com/)
-</div>
-...
+# Lumière Design System for [The Wedenesday Collectives (https://thewednesdaycollective.com/)]
 
 ## Overview
 
@@ -109,18 +97,21 @@ function App() {
 ## Mobile-First Approach
 
 ### Responsive Breakpoints
+
 - **Mobile**: 320px - 768px (Single column, touch-optimized)
 - **Tablet**: 768px - 1024px (Two column, adaptive)
 - **Desktop**: 1024px+ (Multi-column, hover states)
 
 ### Touch Targets
+
 - **Primary Actions**: 44px minimum
 - **Secondary Actions**: 32px minimum
 - **Spacing**: 8px minimum between touch elements
 
-## ♿ Accessibility
+## Accessibility
 
 ### Standards Compliance
+
 - **WCAG 2.1 AA** compliant
 - **Color Contrast**: All text meets minimum contrast ratios
 - **Keyboard Navigation**: Full keyboard accessibility
@@ -128,6 +119,7 @@ function App() {
 - **Touch Accessibility**: Proper touch target sizes
 
 ### Testing
+
 - Automated testing with axe-core
 - Manual keyboard navigation testing
 - Screen reader compatibility testing
@@ -145,7 +137,7 @@ npm run lint         # Run ESLint
 
 ### Project Structure
 
-```
+```jsx
 src/
 ├── components/
 │   ├── lumiere/           # Core design system components
@@ -170,7 +162,7 @@ Visit our [live documentation](https://your-username.github.io/lumiere-design-sy
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 ### Development Setup
 
@@ -198,10 +190,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Issues**: [GitHub Issues](https://github.com/your-username/lumiere-design-system/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/your-username/lumiere-design-system/discussions)
 
----
+## Available Commands
 
-<div align="center">
-  <p>Made with ❤️ for beautiful mobile experiences</p>
-  <p><em>Lumière - Where elegance meets functionality</em></p>
-    <p><em>part of <a href="https://thewednesdaycollective.com/">The Wednesday Collective family</a></em></p>
-</div>
+- `npm run chromatic` - Full build and publish
+- `npm run chromatic:test` - Test mode (exits cleanly even with changes)
+- `npm run chromatic:publish` - Auto-accept changes and publish
+
+## What Chromatic Provides
+
+1. **Visual Testing** - Automatic screenshot capture of all your stories
+2. **Visual Regression Testing** - Compare screenshots between builds
+3. **Cross-browser Testing** - Test across different browsers
+4. **Documentation** - Beautiful online Storybook
+5. **Collaboration** - Share with your team
+6. **Review Process** - Visual diffs for code reviews
+
+## GitHub Integration & Chromatic
+
+Since my project is linked to GitHub, [Chromatic (https://www.chromatic.com/builds?appId=687a614558f8de72c52bf829)] will automatically report results there.
+
+[Storybook (https://687a614558f8de72c52bf829-wboedldegu.chromatic.com/)]
