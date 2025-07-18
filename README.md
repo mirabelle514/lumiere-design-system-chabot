@@ -1,17 +1,5 @@
 # Lumière Design System
 
-...jsx
-<div align="center">
-  <h1>Lumière</h1>
-  <p><em>A mobile-first design system with French-inspired elegance</em></p>
-  
-  [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://your-username.github.io/lumiere-design-system)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Built with React](https://img.shields.io/badge/Built%20with-React-61DAFB)](https://reactjs.org/)
-  [![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC)](https://tailwindcss.com/)
-</div>
-...
-
 ## Overview
 
 Lumière is a comprehensive design system built specifically for mobile applications, featuring sophisticated French-inspired aesthetics. It combines elegant typography, a carefully curated color palette, and thoughtfully designed components to create beautiful, accessible user interfaces.
@@ -118,7 +106,7 @@ function App() {
 - **Secondary Actions**: 32px minimum
 - **Spacing**: 8px minimum between touch elements
 
-## ♿ Accessibility
+## Accessibility
 
 ### Standards Compliance
 - **WCAG 2.1 AA** compliant
