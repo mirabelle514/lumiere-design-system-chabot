@@ -1,56 +1,127 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React, { forwardRef } from 'react';
+import { cn } from './utils.js';
 
-interface TabItem {
+/**
+ * Props for individual tab items in the LumiereTabBar
+ */
+export interface TabItem {
+  /** Unique identifier for the tab */
   id: string;
-  icon: React.ReactNode;
-  label?: string;
+  /** Display text for the tab */
+  label: string;
+  /** Whether the tab is disabled */
+  disabled?: boolean;
 }
 
-interface LumiereTabBarProps {
-  items: TabItem[];
+/**
+ * Props for the LumiereTabBar component
+ */
+export interface LumiereTabBarProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Array of tab items to display */
+  tabs: TabItem[];
+  /** ID of the currently active tab */
   activeTab: string;
+  /** Callback when tab selection changes */
   onTabChange: (tabId: string) => void;
-  className?: string;
+  /** Tab bar layout direction */
+  orientation?: 'horizontal' | 'vertical';
+  /** Visual style variant for the tab bar */
+  variant?: 'default' | 'text-only';
 }
 
-export const LumiereTabBar: React.FC<LumiereTabBarProps> = ({
-  items,
-  activeTab,
-  onTabChange,
-  className
-}) => {
-  return (
-    <div className={cn(
-      `bg-[var(--lumiere-navy)] rounded-xl p-2
-      flex justify-around items-center`,
-      className
-    )}>
-      {items.map((item) => (
-        <button
-          key={item.id}
-          onClick={() => onTabChange(item.id)}
-          className={cn(
-            `text-[var(--lumiere-grey)] p-2 rounded-lg
-            font-heading text-sm transition-all duration-300
-            flex items-center justify-center relative
-            hover:bg-white/10`,
-            activeTab === item.id && `
-              text-white bg-white/10
-              after:absolute after:bottom-[-2px] after:left-1/2 
-              after:transform after:-translate-x-1/2
-              after:w-5 after:h-0.5 after:bg-white after:rounded-sm
-            `
-          )}
-        >
-          <span className="w-5 h-5">
-            {item.icon}
-          </span>
-          {item.label && (
-            <span className="ml-2">{item.label}</span>
-          )}
-        </button>
-      ))}
-    </div>
-  );
-};
+/**
+ * LumiereTabBar Component
+ * 
+ * A design system tab bar component that provides navigation between different
+ * content sections. Features French-inspired styling with smooth transitions
+ * and accessibility support.
+ * 
+ * Features:
+ * - Horizontal and vertical orientation support
+ * - Active tab highlighting with smooth transitions
+ * - Disabled tab states
+ * - Keyboard navigation support
+ * - Consistent spacing and typography
+ * - Accessibility with proper ARIA attributes
+ * 
+ * @example
+ * ```tsx
+ * const tabs = [
+ *   { id: 'tab1', label: 'Overview' },
+ *   { id: 'tab2', label: 'Details' },
+ *   { id: 'tab3', label: 'Settings', disabled: true }
+ * ];
+ * 
+ * <LumiereTabBar
+ *   tabs={tabs}
+ *   activeTab={activeTab}
+ *   onTabChange={setActiveTab}
+ *   orientation="horizontal"
+ * />
+ * ```
+ */
+export const LumiereTabBar = forwardRef<HTMLDivElement, LumiereTabBarProps>(
+  ({ className, tabs, activeTab, onTabChange, orientation = 'horizontal', variant = 'default', ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        role="tablist"
+        aria-orientation={orientation}
+        className={cn(
+          // Base tab bar styling with flex layout
+          'flex',
+          
+          // Orientation-specific styling
+          orientation === 'horizontal' 
+            ? 'flex-row space-x-1' 
+            : 'flex-col space-y-1',
+          
+          className
+        )}
+        {...props}
+      >
+        {/* Render each tab item */}
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-selected={activeTab === tab.id}
+            aria-disabled={tab.disabled}
+            disabled={tab.disabled}
+            onClick={() => !tab.disabled && onTabChange(tab.id)}
+            className={cn(
+              // Base tab button styling
+              'px-4 py-2 text-sm font-medium transition-all duration-200',
+              'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+              
+              // Variant-specific styling
+              variant === 'default' && [
+                'rounded-lg',
+                // Active tab styling with background and text color
+                activeTab === tab.id
+                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+              ],
+              
+              variant === 'text-only' && [
+                'border-b-2 border-transparent',
+                // Active tab styling with underline only
+                activeTab === tab.id
+                  ? 'text-foreground border-foreground'
+                  : 'text-muted-foreground hover:text-foreground hover:border-muted-foreground'
+              ],
+              
+              // Disabled tab styling
+              tab.disabled && 'opacity-50 cursor-not-allowed hover:bg-transparent hover:text-muted-foreground'
+            )}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    );
+  }
+);
+
+// Set display name for better debugging
+LumiereTabBar.displayName = 'LumiereTabBar';

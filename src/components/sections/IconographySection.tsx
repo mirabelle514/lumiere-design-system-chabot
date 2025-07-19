@@ -14,7 +14,7 @@ interface IconGridProps {
 const IconGrid: React.FC<IconGridProps> = ({ title, icons }) => (
   <div className="mb-8">
     <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">{title}</h4>
-    <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+    <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-8">
       {icons.map((item, index) => (
         <div key={index} className="flex flex-col items-center p-3 rounded-lg bg-[var(--lumiere-grey)] hover:bg-[var(--lumiere-ivory)] transition-colors">
           <div className="text-[var(--lumiere-navy)] mb-2">
@@ -64,7 +64,7 @@ export const IconographySection: React.FC = () => {
 
   return (
     <section className="py-16">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="px-6 mx-auto max-w-6xl">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
             Iconography

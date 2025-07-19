@@ -2,27 +2,24 @@ import React, { forwardRef, useId } from 'react';
 import { cn } from './utils.js';
 
 // Base props interface
-interface BaseInputProps {
-  /** Error message to display below the input */
+interface BaseTextareaProps {
+  /** Error message to display below the textarea */
   error?: string;
-  /** Label text to display above the input */
+  /** Label text to display above the textarea */
   label?: string;
   /** Whether the field is required (adds asterisk to label) */
   required?: boolean;
-  /** Helper text to display below the input */
+  /** Helper text to display below the textarea */
   helperText?: string;
   /** Additional CSS classes */
   className?: string;
 }
 
-// Extend with proper HTML input attributes
-export interface LumiereInputProps extends BaseInputProps, React.InputHTMLAttributes<HTMLInputElement> {
-  /** Description for screen readers */
-  'aria-describedby'?: string;
-}
+// Extend with proper HTML textarea attributes
+export interface LumiereTextareaProps extends BaseTextareaProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-// Base styles that apply to all inputs
-const BASE_INPUT_STYLES = 'flex h-10 w-full rounded-md border border-gray-500 bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground';
+// Base styles that apply to all textareas
+const BASE_TEXTAREA_STYLES = 'flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground';
 
 // Focus state styles
 const FOCUS_STYLES = 'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2';
@@ -33,36 +30,40 @@ const DISABLED_STYLES = 'disabled:cursor-not-allowed disabled:opacity-50';
 // Read-only state styles
 const READONLY_STYLES = 'read-only:bg-muted read-only:cursor-default';
 
+// Resize styles
+const RESIZE_STYLES = 'resize-vertical';
+
 // Error state styles
 const ERROR_STYLES = 'border-destructive focus:ring-destructive';
 
 // Label styles
-const LABEL_STYLES = 'block px-2 text-sm font-medium text-foreground';
+const LABEL_STYLES = 'block text-sm font-medium text-foreground';
 
 // Required asterisk styles
 const REQUIRED_ASTERISK_STYLES = 'text-destructive ml-1';
 
 // Helper text styles
-const HELPER_TEXT_STYLES = 'block px-2 text-sm font-body text-foreground';
+const HELPER_TEXT_STYLES = 'text-sm font-body';
 
 // Error text styles
-const ERROR_TEXT_STYLES = 'block px-2 text-sm font-body text-destructive';
+const ERROR_TEXT_STYLES = 'text-destructive';
 
 /**
- * Builds the input classes based on the component props
+ * Builds the textarea classes based on the component props
  * @param error - Whether there's an error
  * @param className - Additional CSS classes
  * @returns The combined className string
  */
-const buildInputClasses = (
+const buildTextareaClasses = (
   error?: string,
   className?: string
 ): string => {
   return cn(
-    BASE_INPUT_STYLES,
+    BASE_TEXTAREA_STYLES,
     FOCUS_STYLES,
     DISABLED_STYLES,
     READONLY_STYLES,
+    RESIZE_STYLES,
     error && ERROR_STYLES,
     className
   );
@@ -76,8 +77,7 @@ const buildInputClasses = (
 const buildTextClasses = (isError: boolean): string => {
   return cn(
     HELPER_TEXT_STYLES,
-    isError && ERROR_TEXT_STYLES,
-    !isError && 'text-muted-foreground'
+    isError ? ERROR_TEXT_STYLES : 'text-muted-foreground'
   );
 };
 
@@ -87,54 +87,55 @@ const buildTextClasses = (isError: boolean): string => {
  * @returns Object with generated IDs
  */
 const generateIds = (baseId: string) => ({
-  inputId: baseId,
+  textareaId: baseId,
   labelId: `label-${baseId}`,
   helperTextId: `helper-${baseId}`,
   errorId: `error-${baseId}`
 });
 
 /**
- * LumiereInput Component
+ * LumiereTextarea Component
  * 
- * A design system input component that provides consistent styling for form inputs
- * with French-inspired design language. This component offers comprehensive form
- * input functionality with full accessibility support.
+ * A design system textarea component that provides consistent styling for multi-line
+ * text input with French-inspired design language. This component offers comprehensive
+ * textarea functionality with full accessibility support.
  * 
  * **Key Features:**
- * - **Type-safe props**: Full TypeScript support with proper HTML input attributes
+ * - **Type-safe props**: Full TypeScript support with proper HTML textarea attributes
  * - **Accessibility**: Complete ARIA support and screen reader compatibility
  * - **Error handling**: Visual error states with proper messaging
  * - **Form integration**: Works seamlessly with form libraries
  * - **Design system consistency**: Uses Lumiere color tokens and typography
  * - **Auto-generated IDs**: Unique IDs for accessibility (no ID conflicts)
+ * - **Resizable**: Vertical resize with proper minimum height
  * 
  * **Usage Examples:**
  * ```tsx
- * // Basic input with label
- * <LumiereInput
- *   label="Full Name"
- *   placeholder="Enter your name"
+ * // Basic textarea with label
+ * <LumiereTextarea
+ *   label="Message"
+ *   placeholder="Enter your message"
+ *   rows={4}
  *   required
  * />
  * 
- * // Input with error state
- * <LumiereInput
- *   label="Email Address"
- *   type="email"
- *   error="Please enter a valid email address"
- *   helperText="We'll never share your email"
+ * // Textarea with error state
+ * <LumiereTextarea
+ *   label="Description"
+ *   error="Description is required"
+ *   helperText="Please provide a detailed description"
  * />
  * 
- * // Disabled input
- * <LumiereInput
- *   label="Username"
- *   value="john_doe"
+ * // Disabled textarea
+ * <LumiereTextarea
+ *   label="Notes"
+ *   value="Read-only content"
  *   disabled
  * />
  * 
- * // Input with custom styling
- * <LumiereInput
- *   label="Custom Input"
+ * // Textarea with custom styling
+ * <LumiereTextarea
+ *   label="Custom Textarea"
  *   className="border-2 border-primary"
  * />
  * ```
@@ -146,31 +147,23 @@ const generateIds = (baseId: string) => ({
  * - Required field indicators with `aria-required`
  * - Focus management with visible focus rings
  */
-export const LumiereInput = forwardRef<HTMLInputElement, LumiereInputProps>(
+export const LumiereTextarea = forwardRef<HTMLTextAreaElement, LumiereTextareaProps>(
   ({ 
     className, 
     error, 
     label, 
     required, 
     helperText, 
-    id, 
-    'aria-describedby': ariaDescribedby, 
+    id,
     ...props 
   }, ref) => {
     // Generate unique IDs for accessibility
     const generatedId = useId();
-    const inputId = id || generatedId;
-    const { labelId, helperTextId, errorId } = generateIds(inputId);
-    
-    // Combine aria-describedby with our IDs
-    const describedBy = [
-      ariaDescribedby,
-      helperText && !error && helperTextId,
-      error && errorId
-    ].filter(Boolean).join(' ');
+    const textareaId = id || generatedId;
+    const { labelId, helperTextId, errorId } = generateIds(textareaId);
 
-    // Build the input classes
-    const inputClasses = buildInputClasses(error, className);
+    // Build the textarea classes
+    const textareaClasses = buildTextareaClasses(error, className);
 
     return (
       <div className="space-y-2">
@@ -178,7 +171,7 @@ export const LumiereInput = forwardRef<HTMLInputElement, LumiereInputProps>(
         {label && (
           <label 
             id={labelId}
-            htmlFor={inputId}
+            htmlFor={textareaId}
             className={LABEL_STYLES}
           >
             {label}
@@ -193,15 +186,15 @@ export const LumiereInput = forwardRef<HTMLInputElement, LumiereInputProps>(
           </label>
         )}
         
-        {/* Input field with conditional error styling */}
-        <input
-          id={inputId}
+        {/* Textarea field with conditional error styling */}
+        <textarea
+          id={textareaId}
           ref={ref}
           aria-labelledby={label ? labelId : undefined}
-          aria-describedby={describedBy || undefined}
+          aria-describedby={error ? errorId : helperText ? helperTextId : undefined}
           aria-invalid={error ? 'true' : 'false'}
           aria-required={required}
-          className={inputClasses}
+          className={textareaClasses}
           {...props}
         />
         
@@ -222,4 +215,4 @@ export const LumiereInput = forwardRef<HTMLInputElement, LumiereInputProps>(
 );
 
 // Set display name for better debugging
-LumiereInput.displayName = 'LumiereInput';
+LumiereTextarea.displayName = 'LumiereTextarea';

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { LumiereButton } from '../lumiere/LumiereButton';
 import { LumiereCard, LumiereCardTitle, LumiereCardContent } from '../lumiere/LumiereCard';
-import { LumiereInput, LumiereTextarea } from '../lumiere/LumiereInput';
+import { LumiereInput } from '../lumiere/LumiereInput';
+import { LumiereTextarea } from '../lumiere/LumiereTextarea';
 import { LumiereToggle } from '../lumiere/LumiereToggle';
 import { LumiereTabBar } from '../lumiere/LumiereTabBar';
 import { LumiereModal } from '../lumiere/LumiereModal';
@@ -13,49 +14,49 @@ export const ComponentShowcase: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const tabItems = [
-    { id: 'home', icon: <Home size={20} /> },
-    { id: 'profile', icon: <User size={20} /> },
-    { id: 'settings', icon: <Settings size={20} /> },
-    { id: 'grid', icon: <Grid size={20} /> }
+    { id: 'home', label: 'Home' },
+    { id: 'profile', label: 'Profile' },
+    { id: 'settings', label: 'Settings' },
+    { id: 'grid', label: 'Grid' }
   ];
 
   return (
     <div id="component-showcase" className="space-y-16">
       {/* Buttons Section */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="px-6 mx-auto max-w-6xl">
           <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
             <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
               Buttons
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
               <div>
                 <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">Primary Button</h4>
                 <LumiereButton variant="primary" className="w-full">
                   Get Started
                 </LumiereButton>
-                <small className="text-gray-600 mt-2 block">Navy background, white text - Primary actions</small>
+                <small className="block mt-2 text-gray-600">Navy background, white text - Primary actions</small>
               </div>
               <div>
                 <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">Secondary Button</h4>
                 <LumiereButton variant="secondary" className="w-full">
                   Learn More
                 </LumiereButton>
-                <small className="text-gray-600 mt-2 block">Gold border, ivory background - Secondary actions</small>
+                <small className="block mt-2 text-gray-600">Gold border, ivory background - Secondary actions</small>
               </div>
               <div>
                 <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">Tertiary Button</h4>
                 <LumiereButton variant="tertiary" className="w-full">
                   Cancel
                 </LumiereButton>
-                <small className="text-gray-600 mt-2 block">Text only - Tertiary actions</small>
+                <small className="block mt-2 text-gray-600">Text only - Tertiary actions</small>
               </div>
               <div>
                 <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">Disabled Button</h4>
                 <LumiereButton variant="primary" disabled className="w-full">
                   Disabled
                 </LumiereButton>
-                <small className="text-gray-600 mt-2 block">Grey background - Inactive state</small>
+                <small className="block mt-2 text-gray-600">Grey background - Inactive state</small>
               </div>
             </div>
           </div>
@@ -64,7 +65,7 @@ export const ComponentShowcase: React.FC = () => {
 
       {/* Input Fields Section */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="px-6 mx-auto max-w-6xl">
           <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
             <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
               Input Fields
@@ -85,11 +86,15 @@ export const ComponentShowcase: React.FC = () => {
                 rows={4}
                 placeholder="Enter your message"
               />
-              <LumiereToggle
-                label="Enable Notifications"
-                checked={toggleState}
-                onChange={setToggleState}
-              />
+              <div className="flex gap-3 items-center">
+                <LumiereToggle
+                  variant="switch"
+                  pressed={toggleState}
+                  onClick={() => setToggleState(!toggleState)}
+                  aria-label="Enable Notifications"
+                />
+                <span className="text-sm text-[var(--lumiere-navy)]">Enable Notifications</span>
+              </div>
             </div>
           </div>
         </div>
@@ -97,12 +102,12 @@ export const ComponentShowcase: React.FC = () => {
 
       {/* Cards Section */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="px-6 mx-auto max-w-6xl">
           <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
             <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
               Cards
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <LumiereCard variant="standard">
                 <LumiereCardTitle>Standard Card</LumiereCardTitle>
                 <LumiereCardContent>
@@ -124,19 +129,19 @@ export const ComponentShowcase: React.FC = () => {
 
       {/* Navigation Section */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="px-6 mx-auto max-w-6xl">
           <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
             <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
               Navigation
             </h2>
             <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">Tab Bar</h4>
             <LumiereTabBar
-              items={tabItems}
+              tabs={tabItems}
               activeTab={activeTab}
               onTabChange={setActiveTab}
               className="max-w-md"
             />
-            <small className="text-gray-600 mt-4 block">
+            <small className="block mt-4 text-gray-600">
               Navy background with white active indicators for better contrast
             </small>
           </div>
@@ -145,7 +150,7 @@ export const ComponentShowcase: React.FC = () => {
 
       {/* Modal Section */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="px-6 mx-auto max-w-6xl">
           <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
             <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
               Modal Example

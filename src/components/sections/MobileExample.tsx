@@ -7,15 +7,15 @@ export const MobileExample: React.FC = () => {
   const [activeTab, setActiveTab] = useState('home');
 
   const tabItems = [
-    { id: 'home', icon: <Home size={20} /> },
-    { id: 'profile', icon: <User size={20} /> },
-    { id: 'settings', icon: <Settings size={20} /> },
-    { id: 'grid', icon: <Grid size={20} /> }
+    { id: 'home', label: 'Home' },
+    { id: 'profile', label: 'Profile' },
+    { id: 'settings', label: 'Settings' },
+    { id: 'grid', label: 'Grid' }
   ];
 
   return (
     <section className="py-16">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="px-6 mx-auto max-w-6xl">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
             Mobile App Example
@@ -28,7 +28,7 @@ export const MobileExample: React.FC = () => {
                 {/* Screen */}
                 <div className="bg-[var(--lumiere-ivory)] h-full rounded-[20px] p-6 flex flex-col justify-between">
                   {/* Content */}
-                  <div className="text-center flex-1 flex flex-col justify-center">
+                  <div className="flex flex-col flex-1 justify-center text-center">
                     <h4 className="font-heading text-2xl text-[var(--lumiere-navy)] mb-4">
                       Welcome to Lumière
                     </h4>
@@ -48,7 +48,7 @@ export const MobileExample: React.FC = () => {
                   {/* Tab Bar */}
                   <div className="mt-6">
                     <LumiereTabBar
-                      items={tabItems}
+                      tabs={tabItems}
                       activeTab={activeTab}
                       onTabChange={setActiveTab}
                     />
