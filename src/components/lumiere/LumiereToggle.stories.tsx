@@ -2,23 +2,135 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { LumiereToggle } from './LumiereToggle';
 
+/**
+ * LumiereToggle Component Stories
+ * 
+ * The LumiereToggle component provides a flexible toggle interface for boolean
+ * state changes with two distinct visual variants: switch and checkbox. It
+ * includes comprehensive accessibility features and smooth animations.
+ * 
+ * ## Design Principles
+ * - **Accessibility First**: Complete ARIA support with proper roles and states
+ * - **Visual Clarity**: Clear indication of toggle state through design and animation
+ * - **Consistent Behavior**: Uniform interaction patterns across all variants
+ * - **Smooth Transitions**: Elegant animations that enhance user experience
+ * 
+ * ## Toggle Variants
+ * - **Switch**: Sliding toggle with thumb animation for on/off states
+ * - **Checkbox**: Square checkbox with checkmark for checked/unchecked states
+ * 
+ * ## Accessibility Features
+ * - Proper ARIA roles (\`switch\` or \`checkbox\`)
+ * - \`aria-checked\` state management
+ * - Focus management with visible focus rings
+ * - Keyboard navigation support (Space, Enter)
+ * - Screen reader compatibility
+ * - Minimum 44x44px touch target size
+ * 
+ * ## Usage Guidelines
+ * - Use **Switch** variant for on/off toggles (settings, features)
+ * - Use **Checkbox** variant for selection states (agreements, options)
+ * - Always provide descriptive \`aria-label\` for screen readers
+ * - Use \`aria-describedby\` for additional context when needed
+ * - Test with keyboard navigation and screen readers
+ */
 const meta: Meta<typeof LumiereToggle> = {
   title: 'Lumiere/LumiereToggle',
   component: LumiereToggle,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+The LumiereToggle component provides a flexible toggle interface for boolean state changes
+with two distinct visual variants: switch and checkbox. It includes comprehensive accessibility
+features and smooth animations for enhanced user experience.
+
+## Key Features
+- **2 Visual Variants**: Switch (sliding) and Checkbox (square) with distinct behaviors
+- **Accessibility**: Complete ARIA support with proper roles and state management
+- **Smooth Animations**: Elegant transitions for state changes and interactions
+- **Design System Integration**: Uses Lumiere color tokens and spacing consistently
+- **Type Safety**: Full TypeScript support with proper HTML button attributes
+- **Flexible Styling**: Supports custom styling while maintaining design consistency
+
+## Toggle Variants
+- **Switch**: Sliding toggle with thumb animation for on/off states
+- **Checkbox**: Square checkbox with checkmark for checked/unchecked states
+
+## Accessibility Features
+- Proper ARIA roles (\`switch\` or \`checkbox\`)
+- \`aria-checked\` state management
+- Focus management with visible focus rings
+- Keyboard navigation support (Space, Enter)
+- Screen reader compatibility
+- Minimum 44x44px touch target size
+
+## When to Use
+- **Switch Variant**: Settings toggles, feature enable/disable, on/off states
+- **Checkbox Variant**: Selection states, agreements, multiple choice options
+- **General**: Any boolean state that needs user interaction
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },
       options: ['switch', 'checkbox'],
+      description: 'Visual style variant that determines the toggle\'s appearance and behavior',
+      table: {
+        type: { summary: 'ToggleVariant' },
+        defaultValue: { summary: 'checkbox' },
+        category: 'Appearance',
+      },
     },
     pressed: {
       control: { type: 'boolean' },
+      description: 'Whether the toggle is in the "on" or "pressed" state',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
     },
     disabled: {
       control: { type: 'boolean' },
+      description: 'Whether the toggle is disabled and non-interactive',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
+    },
+    'aria-label': {
+      description: 'Accessibility label for screen readers (required for accessibility)',
+      table: {
+        type: { summary: 'string' },
+        category: 'Accessibility',
+      },
+    },
+    'aria-describedby': {
+      description: 'ID of element that describes the toggle for additional context',
+      table: {
+        type: { summary: 'string' },
+        category: 'Accessibility',
+      },
+    },
+    className: {
+      description: 'Additional CSS classes to apply to the toggle button',
+      table: {
+        type: { summary: 'string' },
+        category: 'Styling',
+      },
+    },
+    onClick: {
+      description: 'Click handler for toggle state changes',
+      table: {
+        type: { summary: 'MouseEventHandler' },
+        category: 'Events',
+      },
     },
   },
 };
@@ -26,7 +138,12 @@ const meta: Meta<typeof LumiereToggle> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Simple story that directly uses args - this will work with controls
+/**
+ * Default Toggle - Basic Usage
+ * 
+ * Shows a basic LumiereToggle with default checkbox styling and
+ * interactive controls for testing all properties.
+ */
 export const Default: Story = {
   args: {
     variant: 'switch',
@@ -47,9 +164,21 @@ export const Default: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'The default toggle demonstrates the basic functionality with interactive controls. Use the controls panel to test different variants, states, and properties in real-time.',
+      },
+    },
+  },
 };
 
-// Switch variant story
+/**
+ * Switch Variant - On/Off Toggle
+ * 
+ * Switch variant provides a sliding toggle interface ideal for
+ * on/off states, settings, and feature toggles.
+ */
 export const Switch: Story = {
   args: {
     variant: 'switch',
@@ -69,9 +198,21 @@ export const Switch: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Switch toggles are ideal for on/off states, settings, and feature toggles. They provide clear visual feedback with a sliding thumb animation and are commonly used in modern interfaces.',
+      },
+    },
+  },
 };
 
-// Checkbox variant story
+/**
+ * Checkbox Variant - Selection Toggle
+ * 
+ * Checkbox variant provides a traditional checkbox interface for
+ * selection states, agreements, and multiple choice options.
+ */
 export const Checkbox: Story = {
   args: {
     variant: 'checkbox',
@@ -91,9 +232,21 @@ export const Checkbox: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Checkbox toggles are perfect for selection states, agreements, and multiple choice options. They provide familiar checkbox behavior with enhanced styling and accessibility.',
+      },
+    },
+  },
 };
 
-// All variants story
+/**
+ * All Variants - Complete System
+ * 
+ * This story showcases all toggle variants in one view, making it easy
+ * to compare different styles and understand the complete toggle system.
+ */
 export const AllVariants: Story = {
   args: {
     variant: 'switch',
@@ -149,9 +302,21 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'This comprehensive showcase displays all toggle variants in one view, making it easy to understand the complete toggle system and how different variants work together.',
+      },
+    },
+  },
 };
 
-// Disabled states
+/**
+ * Disabled States - Non-Interactive
+ * 
+ * Disabled toggles demonstrate the visual styling for non-interactive
+ * states, useful for conditional functionality.
+ */
 export const Disabled: Story = {
   render: () => (
     <div className="space-y-4">
@@ -176,9 +341,21 @@ export const Disabled: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Disabled toggles show clear visual indication that they\'re not interactive. They maintain their appearance but prevent user interaction, useful for conditional functionality or read-only states.',
+      },
+    },
+  },
 };
 
-// Interactive story with state management (kept for demonstration)
+/**
+ * Interactive Examples - State Management
+ * 
+ * Interactive examples demonstrate how to manage toggle state in
+ * real applications with proper event handling.
+ */
 export const Interactive: Story = {
   render: () => {
     const [switchState, setSwitchState] = React.useState(false);
@@ -223,23 +400,30 @@ export const Interactive: Story = {
       </div>
     );
   },
-}; 
+  parameters: {
+    docs: {
+      description: {
+        story: 'Interactive examples demonstrate how to manage toggle state in real applications. They show proper event handling and state management patterns that developers can use in their own implementations.',
+      },
+    },
+  },
+};
 
 
 //For toggle controls, several key accessibility considerations are essential:
 
 //Semantic Structure
-//- Use proper ARIA roles like `role="switch"` for on/off toggles or `role="button"` with `aria-pressed` for toggle buttons
-//- Ensure the toggle has an accessible name via `aria-label`, `aria-labelledby`, or associated label text
-//- Include `aria-describedby` if additional context is needed
+//- Use proper ARIA roles like \`role="switch"\` for on/off toggles or \`role="button"\` with \`aria-pressed\` for toggle buttons
+//- Ensure the toggle has an accessible name via \`aria-label\`, \`aria-labelledby\`, or associated label text
+//- Include \`aria-describedby\` if additional context is needed
 
 //State Communication
-//- Use `aria-checked="true/false"` for switch roles or `aria-pressed="true/false"` for toggle buttons
+//- Use \`aria-checked="true/false"\` for switch roles or \`aria-pressed="true/false"\` for toggle buttons
 //- Ensure state changes are announced to screen readers when toggled
-//- Consider using `aria-live` regions for important state changes that affect other content
+//- Consider using \`aria-live\` regions for important state changes that affect other content
 
 //Keyboard Navigation
-//- Make toggles focusable with `tabindex="0"` (or use native focusable elements)
+//- Make toggles focusable with \`tabindex="0"\` (or use native focusable elements)
 //- Support Space bar and Enter key activation
 //- Provide clear focus indicators that meet WCAG contrast requirements
 //- Ensure logical tab order in the interface
@@ -257,6 +441,6 @@ export const Interactive: Story = {
 
 //Additional Considerations
 //- Provide immediate feedback when state changes
-//- Consider animation preferences (`prefers-reduced-motion`)
+//- Consider animation preferences (\`prefers-reduced-motion\`)
 //- Ensure toggles work without JavaScript for critical functionality
 //- Group related toggles logically with fieldsets when appropriate
