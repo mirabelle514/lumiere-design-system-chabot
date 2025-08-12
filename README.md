@@ -1,4 +1,4 @@
-# Lumière Design System for [The Wedenesday Collectives](https://thewednesdaycollective.com/)
+# Lumière Design System for [The Wedenesday Collectives](https://thewednesdaycollective.com/) Chatbot Version
 
 ## Overview
 

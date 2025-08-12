@@ -13,6 +13,7 @@ import { ResponsiveSection } from './components/sections/ResponsiveSection';
 import { AnimationSection } from './components/sections/AnimationSection';
 import { AccessibilitySection } from './components/sections/AccessibilitySection';
 import { UsageGuidelines } from './components/sections/UsageGuidelines';
+import LumiereChatbot from './components/LumiereChatbot';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <AnimationSection />
       <AccessibilitySection />
       <UsageGuidelines />
+      <LumiereChatbot />
     </div>
   );
 }
